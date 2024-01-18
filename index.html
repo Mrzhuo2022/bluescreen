@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows蓝屏图片生成器</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="emo">
+            <div id="emoji">:(</div>
+        </div>
+        <div class="message">
+            <div id="firstLine">你的设备遇到问题，需要重启。</div>
+            <div id="secondLine">我们只收集某些错误信息，然后为你重新启动。</div>
+        </div>
+        <div class="progress">
+            <div id="progressText">100% 完成</div>
+        </div>
+        <div class="error-section">
+            <div class="qr-code">
+                <img class="qr-img" src="./pic.png" alt="QR Code">
+            </div>
+            <div class="error-code">
+                有关此问题的详细信息和可能的解决方法，请访问：<br>
+                <div id="efirstLine">
+                    https://github.com/Mrzhuo2022</div>
+                <br>
+                如果联系支持人员，请向他们提供以下信息：<br>
+                <div id="esecondLine">
+                    终止代码：SYSTEM_SERVICE_EXCEPTION</div>
+            </div>
+        </div>
+    </div>
+    <div class="controls">
+        <input type="text" id="emojiInput" placeholder="输入表情" oninput="updateEmoji()">
+        <input type="text" id="firstLineInput" placeholder="输入主要信息第一行" oninput="updateFirstLine()">
+        <input type="text" id="secondLineInput" placeholder="输入主要信息第二行" oninput="updateSecondLine()">
+        <input type="text" id="progressInput" placeholder="输入进度信息" oninput="updateProgress()">
+        <input type="text" id="efirstLineInput" placeholder="输入错误信息第一行" oninput="updateEFirstLine()">
+        <input type="text" id="esecondLineInput" placeholder="输入错误信息第二行" oninput="updateESecondLine()">
+        <input type="text" id="qrCodeInput" placeholder="输入二维码内容" oninput="generateQRCode()">
+        <button onclick="exportImage()">导出图片</button>
+    </div>
+</body>
+
+</html>
